@@ -241,19 +241,21 @@ services:
       retries: 3
 
   # ==========================================================================
-  # React Frontend - Port 3063 (main site)
+  # React Frontend - Port 3063 (HTTPS with SSL)
   # ==========================================================================
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile
       args:
-        - REACT_APP_API_URL=http://172.168.1.95:4063
-        - REACT_APP_WS_URL=ws://172.168.1.95:4063
+        - REACT_APP_API_URL=https://demo.eminencetechsolutions.com:3063
+        - REACT_APP_WS_URL=wss://demo.eminencetechsolutions.com:3063
     container_name: amr-frontend
     restart: unless-stopped
     ports:
-      - "${FRONTEND_PORT:-3063}:80"
+      - "${FRONTEND_PORT:-3063}:443"
+    volumes:
+      - ./ssl:/etc/nginx/ssl:ro
     depends_on:
       gateway:
         condition: service_healthy
