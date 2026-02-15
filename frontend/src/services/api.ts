@@ -11,7 +11,7 @@ import type {
   DashboardStats,
 } from '../types';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://172.168.1.95:4063';
+const API_URL = process.env.REACT_APP_API_URL || 'https://demo.eminencetechsolutions.com:3063';
 
 const api = axios.create({
   baseURL: API_URL,

@@ -1,6 +1,6 @@
 import type { ResearchProgress } from '../types';
 
-const WS_URL = process.env.REACT_APP_WS_URL || 'ws://172.168.1.95:4063';
+const WS_URL = process.env.REACT_APP_WS_URL || 'wss://demo.eminencetechsolutions.com:3063';
 
 interface WebSocketConnection {
   disconnect: () => void;
